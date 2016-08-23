@@ -1,0 +1,10 @@
+language: node_js
+node_js: '6'
+deploy:
+  provider: npm
+  email: felix@stkn.org
+  api_key:
+    secure: niAH9PX2UwzQSgXrDgodYu4RDeP1RHs/WtmoXejB+rx8PeZzMqXrrjeZIUCsQK6dpGLpgP+lKmQh1el+2Y2y5JVpIEkl3v5FoACkgZDgisoXfergz9nrraH03cS61If8h/Mxe54W07UEITjgrp/LXsJ7Iq1132t+61jaKU3stqdh2jbWq7oxq4FgvboaOHa+oa+ISaYoIKZZCx2Cs0c7SLDUpxYwnd6ub3mK5L74fT+mJxCxZT00Fj8ZpuK3Cc3N4QH8dyxaQkGoNJ6w/93CPTyqE96iRQx3v16rCAdLrheNd0SWwVqFNc8iczmy1cVV1s7095d5teGEISWDqlAqV1l52Ffiy32PpOcuwYuUfp96wOfcYbC86ETWQKym8cZYxeS69OIrshAftDYDjJh+Hkn6Z1RqypSvhNMQnYsC2/+yudPy/XQhEwO+X8QwMX/ldd4pf3mLXvfL65WCaBPSh2mZ3uBQuVWBAiMqfACRPZkb1faoCZl5+vBzZ+Xzp15knfSR+UPe+NWaD3yPN1d2W/KPRbK7DWMsP5pefJ4ufJt4A3moiS4rvewKUQUZ5WlPlbZkj7Asi7nAM8h3NxbJnL+aHv+8Y8MziBi+zxzmAYxPK+inPSTx8agvRAhahiYlQdDzKjxdcm9O3E3RlESaq0JYw/pc8Sn1DgsVFFzaPEU=
+  on:
+    tags: true
+    repo: cebor/angular2-loader
