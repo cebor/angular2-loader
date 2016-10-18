@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
+let fs = require('fs');
+let path = require('path');
 
-import MagicString from 'magic-string';
+let MagicString = require('magic-string');
 
 // using: regex, capture groups, and capture group variables.
 const componentRegex = /@Component\(\s?{([\s\S]*)}\s?\)$/gm;
@@ -9,7 +9,7 @@ const templateUrlRegex = /templateUrl\s*:(.*)/g;
 const styleUrlsRegex = /styleUrls\s*:(\s*\[[\s\S]*?\])/g;
 const stringRegex = /(['"])((?:[^\\]\\\1|.)*?)\1/g;
 
-function replaceStringsWithRequires(string) {
+function replaceStringsWithRequires(string, map) {
   return string.replace(stringRegex, function (match, quote, url) {
     if (url.charAt(0) !== '.') {
       url = './' + url;
@@ -18,11 +18,10 @@ function replaceStringsWithRequires(string) {
   });
 }
 
-export default function (source) {
+module.exports = function (source) {
   this.cacheable();
 
   const magicString = new MagicString(source);
-  const dir = path.parse(map).dir;
 
   let hasReplacements = false;
   let match;
@@ -43,5 +42,7 @@ export default function (source) {
     magicString.overwrite(start, end, replacement);
   }
 
-  this.callback(null, magicString.toString(), magicString.generateMap({ hires: true }))
+  let sourceMap = magicString.generateMap({ hires: true });
+
+  this.callback(null, magicString.toString(), magicString.generateMap({ hires: true }).mappings);
 };
