@@ -1,6 +1,6 @@
 {
   "name": "angular2-loader",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Angular2 template and styles loader for webpack",
   "main": "dist/angular2-loader.js",
   "module": "dist/angular2-loader.esm.js",
