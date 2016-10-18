@@ -2,8 +2,11 @@
   "name": "angular2-loader",
   "version": "0.0.1",
   "description": "Angular2 template and styles loader for webpack",
-  "main": "index.js",
+  "main": "dist/angular2-loader.js",
+  "module": "dist/angular2-loader.esm.js",
   "scripts": {
+    "build": "rollup -c",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "angular2",
@@ -17,5 +20,12 @@
     "type": "git",
     "url": "https://github.com/cebor/angular2-loader.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^0.36.3",
+    "rollup-plugin-buble": "^0.14.0"
+  },
+  "dependencies": {
+    "magic-string": "^0.16.0"
+  }
 }
