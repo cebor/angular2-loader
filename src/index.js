@@ -23,7 +23,6 @@ module.exports = function (source) {
 
   const magicString = new MagicString(source);
 
-  let hasReplacements = false;
   let match;
   let start, end, replacement;
 
@@ -42,7 +41,5 @@ module.exports = function (source) {
     magicString.overwrite(start, end, replacement);
   }
 
-  let sourceMap = magicString.generateMap({ hires: true });
-
-  this.callback(null, magicString.toString(), magicString.generateMap({ hires: true }).mappings);
+  this.callback(null, magicString.toString(), magicString.generateMap({ hires: true }));
 };
